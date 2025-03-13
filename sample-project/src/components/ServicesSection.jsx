@@ -1,4 +1,3 @@
-
 import { BarChart3, Cloud, Code, Palette, ShoppingBag, Truck } from 'lucide-react';
 import ServiceCard from './ServiceCard';
 
@@ -37,21 +36,21 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-muted/50">
+    <section id="services" className="py-10 cursor-pointer bg-muted/50">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-16 max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Services</h2>
+        <div className="text-center mb-8 max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-2">Our Services</h2>
           <p className="text-lg text-muted-foreground">
             Comprehensive solutions designed to transform retail operations with cutting-edge technology and industry expertise.
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {services.map((service, index) => (
             <div 
               key={index} 
               className="animate-fade-up" 
-              style={{ animationDelay: `${0.1 + index * 0.1}s` }}
+              style={{ animationDelay: `${0.1 + index * 0.1}s`}}
             >
               <ServiceCard {...service} />
             </div>
