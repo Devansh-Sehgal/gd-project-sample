@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 const LoadingAnimation = () => {
@@ -6,7 +7,7 @@ const LoadingAnimation = () => {
       <div className="relative w-72 h-72">
         {/* Outer rings */}
         {[1, 2, 3].map(ring => (
-          <div 
+          <div
             key={`ring-${ring}`}
             className="absolute rounded-full border border-blue-500/30"
             style={{
@@ -23,7 +24,7 @@ const LoadingAnimation = () => {
         ))}
 
         {/* Main center ring with gradient */}
-        <div 
+        <div
           className="absolute rounded-full"
           style={{
             top: '50%',
@@ -32,13 +33,12 @@ const LoadingAnimation = () => {
             height: '100px',
             transform: 'translate(-50%, -50%)',
             background: 'conic-gradient(from 0deg, rgba(59, 130, 246, 0.8), rgba(139, 92, 246, 0.8), rgba(236, 72, 153, 0.8), rgba(59, 130, 246, 0.8))',
-            boxShadow: '0 0 30px rgba(59, 130, 246, 0.7)',
-            animation: 'spin 4s linear infinite'
+            boxShadow: '0 0 30px rgba(59, 130, 246, 0.7)'
           }}
         />
 
         {/* Inner center */}
-        <div 
+        <div
           className="absolute rounded-full bg-white"
           style={{
             top: '50%',
@@ -47,13 +47,12 @@ const LoadingAnimation = () => {
             height: '80px',
             transform: 'translate(-50%, -50%)',
             background: 'radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(219,234,254,1) 70%, rgba(191,219,254,1) 100%)',
-            boxShadow: '0 0 15px rgba(255, 255, 255, 0.9)',
-            animation: 'pulse 2s ease-in-out infinite'
+            boxShadow: '0 0 15px rgba(255, 255, 255, 0.9)'
           }}
         />
 
         {/* Inner geometric shape - hexagonal prism */}
-        <div 
+        <div
           className="absolute"
           style={{
             top: '50%',
@@ -65,13 +64,12 @@ const LoadingAnimation = () => {
             background: 'linear-gradient(45deg, #3b82f6, #8b5cf6, #3b82f6)',
             backgroundSize: '200% 200%',
             boxShadow: '0 0 15px rgba(79, 70, 229, 0.7)',
-            filter: 'drop-shadow(0 0 5px rgba(147, 197, 253, 0.8))',
-            animation: 'rotate 3s linear infinite'
+            filter: 'drop-shadow(0 0 5px rgba(147, 197, 253, 0.8))'
           }}
         />
-          
+
         {/* Loading text */}
-        <div 
+        <div
           className="absolute text-center font-bold tracking-widest text-xs"
           style={{
             bottom: '0',
@@ -86,23 +84,37 @@ const LoadingAnimation = () => {
         </div>
       </div>
 
-      {/* Add keyframes animations to your global CSS */}
-      <style jsx global>{`
-        @keyframes spin {
-          0% { transform: translate(-50%, -50%) rotate(0deg); }
-          100% { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-        
-        @keyframes pulse {
-          0%, 100% { transform: translate(-50%, -50%) scale(1); }
-          50% { transform: translate(-50%, -50%) scale(1.1); }
-        }
-        
-        @keyframes rotate {
-          0% { transform: translate(-50%, -50%) rotate(0deg); }
-          100% { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-      `}</style>
+      {/* Add keyframes animations */}
+      <style jsx="true">
+        {`
+          @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+          }
+          
+          @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.1); }
+          }
+          
+          @keyframes rotate {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+          }
+          
+          .absolute:nth-child(4) {
+            animation: spin 4s linear infinite;
+          }
+          
+          .absolute:nth-child(5) {
+            animation: pulse 2s ease-in-out infinite;
+          }
+          
+          .absolute:nth-child(6) {
+            animation: rotate 3s linear infinite;
+          }
+        `}
+      </style>
     </div>
   );
 };
